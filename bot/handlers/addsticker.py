@@ -25,7 +25,7 @@ def on_add_command(bot, update, user_data):
     if not pack_titles:
         update.message.reply_text(s.ADD_STICKER_NO_PACKS)
     else:
-        markup = rm.get_markup_from_list(pack_titles)
+        markup = rm.get_markup_from_list(pack_titles, add_back_button=True)
         update.message.reply_text(s.ADD_STICKER_SELECT_PACK, reply_markup=markup)
 
         user_data['status'] = 'adding_waiting_pack_title'
