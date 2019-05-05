@@ -116,7 +116,7 @@ def on_sticker_receive(bot, update, user_data):
         return
 
     sticker = StickerFile(update.message.sticker or update.message.document, caption=update.message.caption)
-    sticker.download(prepare_png=True)
+    sticker.download(update, prepare_png=True)
 
     error = sticker.add_to_set(bot, update.effective_user.id, name)
     pack_link = u.name2link(name)

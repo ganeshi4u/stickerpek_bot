@@ -1,5 +1,6 @@
 CREATE_TABLE_USERS = """CREATE TABLE IF NOT EXISTS Users (
-    user_id INTEGER PRIMARY KEY
+    user_id INTEGER PRIMARY KEY,
+    user_transparency NVARCHAR(5)
 );"""
 
 
@@ -10,8 +11,13 @@ CREATE_TABLE_PACKS = """CREATE TABLE IF NOT EXISTS Packs (
     name NVARCHAR(64) --will also represents the link (saved with "_by_botusername")
 );"""
 
-INSERT_USER = """INSERT OR IGNORE INTO Users (user_id)
-VALUES (?);"""
+INSERT_USER = """INSERT OR IGNORE INTO Users (user_id, user_transparency)
+VALUES (?, ?);"""
+
+UPDATE_USER_TRANSPARENCY = """UPDATE OR IGNORE Users SET user_transparency = ? 
+WHERE user_id = ?;"""
+
+CHECK_USER_TRANSPARENCY = """SELECT user_transparency FROM Users WHERE user_id = ?;"""
 
 CHECK_PACK_NAME_PRESENCE = """SELECT name
 FROM Packs

@@ -56,7 +56,7 @@ def on_sticker_receive(bot, update, user_data):
         sticker_file = StickerFile(sticker)
         try:
             # try to download and convert to png
-            sticker_file.download(prepare_png=True, subdir=dir_name)
+            sticker_file.download(update, prepare_png=True, subdir=dir_name)
             # delete only the .webp file
             sticker_file.delete(keep_result_png=True)
         except Exception as e:

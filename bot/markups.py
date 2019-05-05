@@ -15,7 +15,7 @@ def get_markup_from_list(titles, add_back_button=False):
 
     return ReplyKeyboardMarkup(build_menu(titles, n_cols=2, footer_buttons=cancel_btn), resize_keyboard=True)
 
-def get_start_menu_markup(titles, add_back_button=False):
+def get_menu_markup(titles, add_back_button=False):
     if add_back_button:
         cancel_btn = [
             KeyboardButton('/cancel')

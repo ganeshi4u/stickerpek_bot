@@ -18,7 +18,8 @@ STATUSES_DICT = {
     'adding_waiting_pack_title': 'waiting for the pack title of the target pack so we can add stickers to it',
     'removing_stickers': 'waiting for the sticker to remove from its pack',
     'exporting_pack_waiting_sticker': 'waiting for a sticker from the pack to export',
-    'unknown': 'unmapped status'
+    'unknown': 'unmapped status',
+    'waiting_user_transparency': 'waiting to specify the transparency state'
 }
 
 

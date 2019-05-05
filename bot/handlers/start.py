@@ -20,6 +20,7 @@ start_menu = [
     KeyboardButton('/status'),
     KeyboardButton('/export'),
     KeyboardButton('/forgetme'),
+    KeyboardButton('/transparency'),
     KeyboardButton('/help')
 ]
 
@@ -39,7 +40,7 @@ def on_help_command(bot, update):
 def on_start_command(bot, update, user_data):
     logger.info('%d: /start', update.effective_user.id)
 
-    db.insert_user(update.effective_user.id)
+    db.insert_user(update.effective_user.id, 'off')
     start_message = s.START_MESSAGE
     if config.bot.sourcecode:
         start_message = '{}\n\n<a href="{}">source code</a>'.format(start_message, config.bot.sourcecode)
@@ -47,7 +48,7 @@ def on_start_command(bot, update, user_data):
     update.message.reply_html(start_message, disable_web_page_preview=True)
 
     start_menu_markup = ''
-    start_menu_markup = rm.get_start_menu_markup(start_menu, add_back_button=True)
+    start_menu_markup = rm.get_menu_markup(start_menu, add_back_button=True)
     update.message.reply_html('<b>{}</b>'.format('Choose an option!'), reply_markup=start_menu_markup)
 
     # reset user status

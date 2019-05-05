@@ -4,7 +4,7 @@ I've been made to create custom sticker peks by kanging existing stickers or fro
 Main commands:
 /create to create a new pek
 /add to add stickers to an existing pek
-/help for more commands (take a look at these commands!)"""
+/help for more commands and info (take a look at these commands!)"""
 
 HELP_MESSAGE = """<b>Full commands list</b>:
 - /create: create a new pek
@@ -15,6 +15,7 @@ HELP_MESSAGE = """<b>Full commands list</b>:
 - /export: export a sticker pek as a zip of png files
 - /forgetme: delete yourself from my database. The peks you created will <b>not</b> be deleted from Telegram
 - /status: debug command, shows your current status
+- /transparency: makes background transparent for images/stickers that have a white background (wip)
 
 <b>Other operations</b>
 You can delete a pek, change stickers' emojis/order and see stickers/peks stats from @stickers
@@ -136,3 +137,11 @@ EXPORT_PACK_NO_PACK = """This sticker doesn't belong to any pek. Please send me 
 EXPORT_PACK_START = """Exporting stickers from <i>{}</i>... it may take some minutes. Please hold on"""
 
 EXPORT_PACK_UPLOADING = """Zipping png files and uploading..."""
+
+CURRENT_USER_TRANSPARENCY_STATE = """Current transparency state is: <b>{}</b> \n\nPossible values: on, off \n\n\
+Send your preferred value to set transparency state.\n\n /cancel to leave it at current state."""
+
+CURRENT_USER_TRANSPARENCY_STATE_UPDATE = """Transparency state is now set to: <b>{}</b> \n /done"""
+
+UNKNOWN_CURRENT_USER_TRANSPARENCY_STATE = """Invalid value '<b>{}</b>' for transparency state. Please provide a valid value! \
+\n or /cancel"""

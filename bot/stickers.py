@@ -9,6 +9,8 @@ from telegram.error import BadRequest
 from telegram.error import TelegramError
 
 from bot import u
+from .database import Database
+from config import config
 
 logger = logging.getLogger(__name__)
 
@@ -67,7 +69,7 @@ class StickerFile:
         else:
             return self._size_resized
 
-    def download(self, prepare_png=False, subdir=''):
+    def download(self, update, prepare_png=False, subdir=''):
         logger.debug('downloading sticker')
         new_file = self._file.get_file()
 
@@ -80,12 +82,13 @@ class StickerFile:
         new_file.download(self._downloaded_file_path)
 
         if prepare_png:
-            return self.prepare_png(subdir=subdir)
+            return self.prepare_png(update, subdir=subdir)
 
-    def prepare_png(self, subdir=''):
+    def prepare_png(self, update, subdir=''):
         logger.info('preparing png (source file: %s)', self._downloaded_file_path)
 
         im = Image.open(self._downloaded_file_path)
+        transparency_state = Database(config.sqlite.filename).get_transparency_state(update.effective_user.id)
 
         logger.debug('original image size: %s', im.size)
         self._size_original = im.size
@@ -97,7 +100,20 @@ class StickerFile:
         else:
             logger.debug('original size is ok')
 
-        self._png_path = 'tmp/{}converted_{}.png'.format(subdir, self._file.file_id)
+        if 'on' in transparency_state:
+            im = im.convert("RGBA")
+            datas = im.getdata()
+            newData = []
+
+            for item in datas:
+                if item[0] == 255 and item[1] == 255 and item[2] == 255:
+                    newData.append((255, 255, 255, 0))
+                else:
+                    newData.append(item)
+            im.putdata(newData)
+            self._png_path = 'tmp/{}transparency_converted_{}.png'.format(subdir, self._file.file_id)
+        else:
+            self._png_path = 'tmp/{}converted_{}.png'.format(subdir, self._file.file_id)
 
         logger.debug('saving PIL image object as png (%s)', self._png_path)
         im.save(self._png_path, 'png')

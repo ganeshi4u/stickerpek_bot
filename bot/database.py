@@ -21,10 +21,10 @@ class Database(ssw.Database):
         self._execute(sql.CREATE_TABLE_USERS)
         self._execute(sql.CREATE_TABLE_PACKS)
 
-    def insert_user(self, user_id):
+    def insert_user(self, user_id, transparency_state):
         logger.debug('inserting user %d', user_id)
 
-        rows_inserted = self._execute(sql.INSERT_USER, (user_id,), rowcount=True)
+        rows_inserted = self._execute(sql.INSERT_USER, (user_id, transparency_state), rowcount=True)
         logger.debug('inserted rows: %d', rows_inserted)
 
         return rows_inserted
@@ -73,3 +73,13 @@ class Database(ssw.Database):
         logger.debug('getting packs for user %d', user_id)
 
         return self._execute(sql.SELECT_USER_PACKS, (user_id,), fetchall=True, **kwargs)
+
+    def get_transparency_state(self, user_id):
+        logger.debug('getting current transparency state for user %d', user_id)
+
+        return self._execute(sql.CHECK_USER_TRANSPARENCY, (user_id,), fetchone=True)
+
+    def update_transparency_state(self, user_id, transparency_val):
+        logger.debug('updating transparency state for user %d', user_id)
+
+        self._execute(sql.UPDATE_USER_TRANSPARENCY, (transparency_val, user_id),)

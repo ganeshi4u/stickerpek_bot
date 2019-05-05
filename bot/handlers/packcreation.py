@@ -106,7 +106,7 @@ def on_first_sticker_receive(bot, update, user_data):
     full_name = name + '_by_' + bot.username
 
     sticker = StickerFile(update.message.sticker or update.message.document, caption=update.message.caption)
-    sticker.download(prepare_png=True)
+    sticker.download(update, prepare_png=True)
 
     try:
         logger.debug('executing API request...')

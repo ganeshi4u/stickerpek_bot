@@ -11,7 +11,8 @@ HANDLERS = (
     'forgetme',
     'list',
     'export',
-    'admin'
+    'admin',
+    'user_transparency'
 )
 
 
