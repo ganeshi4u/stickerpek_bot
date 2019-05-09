@@ -1,45 +1,48 @@
-START_MESSAGE = """Hello mokafaka,
-I've been made to create custom sticker peks by kanging existing stickers or from PNG files.
+START_MESSAGE = """Hallo mokafaka,
+I am the stickerpek kenger bot and i can keng 'em  all! 
+I can create custom sticker peks by kenging existing stickers or from PNG files.
 
-Main commands:
-/create to create a new pek
-/add to add stickers to an existing pek
-/help for more commands and info (take a look at these commands!)"""
+<b>Main commands:</b>
+/create to create your brand new pek
+/add to add stickers to an existing pek that you made
+/help for more commands and info (take a look at these commands!)
+
+Want to donate me already? nah i dont need it, give it to some real charity instead."""
 
 HELP_MESSAGE = """<b>Full commands list</b>:
 - /create: create a new pek
-- /add: add a sticker to a pek
-- /remove: remove a sticker from its pek
-- send me a sticker and I will send you its png back
+- /add: add a sticker to your pek
+- /remove: remove a sticker from a pek you made
+- send me a sticker and I will send you its png bek
 - /list: list your peks (max 100 entries)
-- /export: export a sticker pek as a zip of png files
-- /forgetme: delete yourself from my database. The peks you created will <b>not</b> be deleted from Telegram
+- /export: export that whole HAWT sticker pek as a zip (full of png files)
+- /forgetme: delete yourself from my database. The peks you created will <b>not be deleted</b> from Telegram
 - /status: debug command, shows your current status
-- /transparency: makes background transparent for images/stickers that have a white background (wip)
+- /transparency: makes background transparent for images/stickers that have a white background (W.I.P)
+
+<b>Important Tips</b>:
+- when adding a sticker or creating a pek, you can either pass a sticker or send a png file
+- when adding a sticker as png, you can pass its emojis in the caption to set the emoji to your sticker
 
 <b>Other operations</b>
-You can delete a pek, change stickers' emojis/order and see stickers/peks stats from @stickers
+You can delete a pek, change stickers' emojis/order and see stickers/peks stats from official stickers bot (@stickers)
 
-<b>Tips</b>:
-- when adding a sticker or creating a pek, you can either pass a sticker or a png file
-- when adding a sticker as png, you can pass its emojis in the caption
-
-<b>Other info</b>
+<b>Other information</b>
 All the peks you create with me have their links ending by "_by_{}". This is not made on purpose, \
-but something forced by Telegram"""
+but something forced by Telegram, so pl0x do not blame me for it"""
 
-PACK_CREATION_WAITING_TITLE = """Please send me the pek title (must not exceed 64 characters).
+PACK_CREATION_WAITING_TITLE = """Please send me your desired pek title (must not exceed 64 characters).
 Use /cancel to cancel"""
 
-PACK_TITLE_TOO_LONG = """I'm sorry, the title must be at max 64 characters long. Try with another title"""
+PACK_TITLE_TOO_LONG = """Hey i said "the title must be at max 64 characters long." Try with another title"""
 
-PACK_TITLE_CONTAINS_NEWLINES = """I'm sorry, the title must be a single line (no newline characters)"""
+PACK_TITLE_CONTAINS_NEWLINES = """Can you please put the title in a single line (no newline characters)"""
 
-PACK_CREATION_WAITING_NAME = """Good, this is going to be the pek title: <i>{}</i>
+PACK_CREATION_WAITING_NAME = """Excellento, your pek title is: <i>{}</i>
 
-Please send the what will be the pek link (must be at max {} characters long)"""
+Now, send what will be your sticker pek link (must be at max {} characters long)"""
 
-PACK_NAME_TOO_LONG = """I'm sorry, this link is too long ({}/{}). Try again with another link"""
+PACK_NAME_TOO_LONG = """Oh C'mon, this link is too long ({}/{}). Try again with another link"""
 
 PACK_NAME_INVALID = """<b>Invalid link</b>. A link must:
 • start with a letter
@@ -47,30 +50,30 @@ PACK_NAME_INVALID = """<b>Invalid link</b>. A link must:
 • not contain two consecutive underscores
 • not end with an underscore
 
-Please try again"""
+Try again"""
 
-PACK_NAME_DUPLICATE = """I'm sorry, you already have a pek with this link saved. try with another link"""
+PACK_NAME_DUPLICATE = """Hold it right there! you already have a pek with this link saved. try with another link"""
 
-PACK_CREATION_WAITING_FIRST_STICKER = """got it, we are almost done. Now send me the first sticker of the pek"""
+PACK_CREATION_WAITING_FIRST_STICKER = """Alright, we are almost done. Now send me the first sticker of the pek"""
 
 PACK_CREATION_FIRST_STICKER_PACK_DATA_MISSING = """Ooops, something went wrong.
 Please repeat the creation process with /create"""
 
-PACK_CREATION_ERROR_DUPLICATE_NAME = """I'm sorry, there's already a pek with <a href="{}">this link</a>.
+PACK_CREATION_ERROR_DUPLICATE_NAME = """NO, there's already a pek with <a href="{}">this link</a>.
 Please send me a new link, or /cancel"""
 
-PACK_CREATION_ERROR_INVALID_NAME = """I'm sorry, Telegram rejected the link you provided saying it's not valid.
+PACK_CREATION_ERROR_INVALID_NAME = """Telegram rejected the link you provided saying it's not valid.
 Please send a me new link, or /cancel"""
 
 PACK_CREATION_ERROR_GENERIC = """Error while trying to create the pek: <code>{}</code>.
 Please try again, or /cancel"""
 
-PACK_CREATION_PACK_CREATED = """Your pek has been created, add it through <a href="{}">this link</a>
+PACK_CREATION_PACK_CREATED = """Yay! Your pek has been created, add it through <a href="{}">this link</a>
 Continue to send me stickers to add more, or /done"""
 
 ADD_STICKER_SELECT_PACK = """Select the pek you want to add stickers to, or /cancel"""
 
-ADD_STICKER_NO_PACKS = """You don't have any pek yet. Use /create to start creating a new pek"""
+ADD_STICKER_NO_PACKS = """You don't have any pek yet. Use /create to create your new pek"""
 
 ADD_STICKER_SELECTED_TITLE_DOESNT_EXIST = """It seems like the pek "{}" doesn't exist.
 Please select a valid pek from the keyboard"""
@@ -124,9 +127,9 @@ REMOVE_STICKER_GENERIC_ERROR = """An error occurred while removing this sticker 
 <code>{}</code>.
 Try again, send me another sticker or use /done when you're done"""
 
-FORGETME_SUCCESS = """Success, I've deleted all of your peks from my database"""
+FORGETME_SUCCESS = """Mission completed, I've deleted all of your peks from my database"""
 
-CANCEL = """Good, we're done with that"""
+CANCEL = """Good, we're done here"""
 
 LIST_NO_PACKS = """You don't have any pek. Use /create to create one"""
 
