@@ -19,7 +19,8 @@ STATUSES_DICT = {
     'removing_stickers': 'waiting for the sticker to remove from its pack',
     'exporting_pack_waiting_sticker': 'waiting for a sticker from the pack to export',
     'unknown': 'unmapped status',
-    'waiting_user_transparency': 'waiting to specify the transparency state'
+    'waiting_user_transparency': 'waiting to specify the transparency state',
+    'waiting_addpack_name': 'waiting for a pack name to be added'
 }
 
 

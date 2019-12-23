@@ -21,6 +21,7 @@ start_menu = [
     KeyboardButton('/export'),
     KeyboardButton('/forgetme'),
     KeyboardButton('/transparency'),
+    KeyboardButton('/addpack'),
     KeyboardButton('/help')
 ]
 

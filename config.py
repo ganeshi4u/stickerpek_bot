@@ -12,7 +12,8 @@ HANDLERS = (
     'list',
     'export',
     'admin',
-    'user_transparency'
+    'user_transparency',
+    'addpack'
 )
 
 

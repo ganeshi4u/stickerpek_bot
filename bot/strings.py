@@ -16,6 +16,7 @@ HELP_MESSAGE = """<b>Full commands list</b>:
 - /forgetme: delete yourself from my database. The peks you created will <b>not</b> be deleted from Telegram
 - /status: debug command, shows your current status
 - /transparency: makes background transparent for images/stickers that have a white background (wip)
+- /addpack: add an existing pack to your database
 
 <b>Other operations</b>
 You can delete a pek, change stickers' emojis/order and see stickers/peks stats from @stickers
@@ -27,6 +28,13 @@ You can delete a pek, change stickers' emojis/order and see stickers/peks stats 
 <b>Other info</b>
 All the peks you create with me have their links ending by "_by_{}". This is not made on purpose, \
 but something forced by Telegram"""
+
+PACK_ADD_WAITING_NAME = """Please send me the name or link of the sticker pek you want to add\n
+(Only peks made by using this bot are supported) """
+
+PACK_ADDED = """<a href="{}"> pek</a> has been added to your database. It should now be available in your pek /list to add stickers."""
+
+PACK_NAME_NOT_OURS_ERROR = """ The provided pek name is not created by me. Please give me the link or name of the peks created by me. """
 
 PACK_CREATION_WAITING_TITLE = """Please send me the pek title (must not exceed 64 characters).
 Use /cancel to cancel"""
